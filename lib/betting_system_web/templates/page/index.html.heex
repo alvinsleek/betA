@@ -1,0 +1,141 @@
+
+
+<%!-- <section class="phx-hero">
+  <h1><%= gettext("Welcome to %{name}!", name: "Phoenix") %></h1>
+  <p>Peace of mind from prototype to production</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Resources</h2>
+    <ul>
+      <li>
+        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">
+          v1.6 Changelog
+        </a>
+      </li>
+    </ul>
+  </article>
+  <article class="column">
+    <h2>Help</h2>
+    <ul>
+      <li>
+        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+      </li>
+      <li>
+        <a href="https://web.libera.chat/#elixir">#elixir on Libera Chat (IRC)</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
+      </li>
+      <li>
+        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
+      </li>
+      <li>
+        <a href="https://discord.gg/elixir">Elixir on Discord</a>
+      </li>
+    </ul>
+  </article>
+</section> --%>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shinda Game - Betting Web System</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+     body {
+            background-image: url('priv/static/images/bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="http://localhost:4000/" class="text-2xl ">SHINDA BETA</a>
+            <nav>
+              
+                <%!-- <a href="#" class="text-white hover:text-gray-300">About</a> --%>
+                <ul>
+              <%= if @current_user do %>
+                <li><%= @current_user.email %></li>
+                <li><%= link("Settings", to: Routes.user_settings_path(@conn, :edit)) %></li>
+                <li><%= link("Log out", to: Routes.user_session_path(@conn, :delete), method: :delete) %></li>
+              <% else %>
+                <li><%= link("Register", to: Routes.user_registration_path(@conn, :new)) %></li>
+                <li><%= link("Log in", to: Routes.user_session_path(@conn, :new)) %></li>
+              <% end %>
+            </ul>
+           </nav> 
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-12">
+        <section class="text-center">
+            <h1 class="text-4xl font-bold mb-6">Welcome to Shinda Beta</h1>
+            <p class="text-lg text-gray-600 mb-8">Place your bets on your favorite games and win big!</p>
+            <a href="http://localhost:4000/users/register" class="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 hover:text-gray-100 transition duration-300 ease-in-out">Get Started </a>
+        </section>
+        
+    <div class="container">
+        <h2>Upcoming Matches</h2>
+        <h3>Premier League</h3>
+        <div class="betting-options">
+            <div class="betting-option">
+                <label>Match: Manchester City vs. Wolves</label>
+                <p>Odds: 2.00 x 1.12 </p>
+                <input type="text" placeholder="Enter your stake">
+                <button>Place Bet</button>
+            </div>
+            <div class="betting-option">
+                <label>Match:Arsenal vs. Chelsea</label>
+                <p>Odds: 1.50 x 1.3 </p>
+                <input type="text" placeholder="Enter your stake">
+                <button>Place Bet</button>
+            </div>
+        </div>
+    </div>
+
+    </main> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+    <footer class="bg-gray-400 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Shinda Game. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
